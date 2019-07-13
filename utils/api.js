@@ -5,4 +5,4 @@ export const fetchImages = async () => {
   return images;
 };
 
-export const getImageFromId = id => `https://picsum.photos/list/${600}/${600}?image=${id}`;
+export const getImageFromId = id => `https://picsum.photos/id/${id}/${600}/${600}`;
