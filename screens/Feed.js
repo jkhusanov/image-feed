@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ViewPropTypes, ActivityIndicator, SafeAreaView, Text } from 'react-native';
-import PropTypes from 'prop-types';
 
 import { fetchImages } from '../utils/api';
 import CardList from '../components/CardList';
