@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Platform } from 'react-native';
+import { StyleSheet, View, Platform, Modal } from 'react-native';
 import Constants from 'expo-constants';
 
 import Feed from './screens/Feed';
+import Comments from './screens/Comments';
 
 export default function App() {
   const [commentsForItem, setCommentsForItem] = useState({});
@@ -21,7 +22,18 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Feed style={styles.feed} />
+      <Feed
+        style={styles.feed}
+        commentsForItem={commentsForItem}
+        onPressComments={openCommentScreen}
+      />
+      <Modal visible={showModal} animationType="slide" onRequestClose={closeCommentScreen}>
+        <Comments
+          style={styles.container}
+          comments={commentsForItem[selectedItemId] || []}
+          onClose={closeCommentScreen}
+        />
+      </Modal>
     </View>
   );
 }
@@ -36,5 +48,9 @@ const styles = StyleSheet.create({
   feed: {
     flex: 1,
     marginTop: Platform.OS === 'android' || platformVersion < 11 ? Constants.statusBarHeight : 0,
+  },
+  comments: {
+    flex: 1,
+    marginTop: Platform.OS === 'ios' && platformVersion < 11 ? Constants.statusBarHeight : 0,
   },
 });
