@@ -32,7 +32,7 @@ It's a simple app from the third chapter of the book.
 ## Getting started
 
 ```
-git clone https://github.com/jkhusanov/Image-feed.git
+git clone https://github.com/jkhusanov/image-feed.git
 
 cd image-feed
 
