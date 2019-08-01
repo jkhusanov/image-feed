@@ -25,6 +25,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Credits fullstack React Native"
   }
 }
